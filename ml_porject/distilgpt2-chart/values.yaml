@@ -1,0 +1,48 @@
+# Количество реплик приложения
+replicaCount: 1
+
+image:
+  repository: your_app
+  pullPolicy: Always
+  tag: "1.0.0"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
+
+# Включение и настройка Ingress
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+# Ресурсы, запросы и лимиты (например, CPU, память)
+resources: {}
+
+# Параметры узлов, на которых разрешено запускать
+nodeSelector: {}
+
+# Список tolerations для назначения подов на узлы с taints
+tolerations: []
+
+# Настройки аффинити
+affinity: {}
+
+# Переопределение имени и полного имени, если необходимо
+nameOverride: ""
+fullnameOverride: ""
+
+clearml:
+  enabled: true
+  apiServer: https://your.clearml.server.domain
+  webServer: https://your.clearml.server.domain
+  credentials:
+    accessKey: your_accessKey_key
+    secretKey: your_secret_key

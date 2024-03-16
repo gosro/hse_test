@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - CLEARML_API_SERVER=https://your.clearml.server.domain
+      - CLEARML_WEB_SERVER=https://your.clearml.server.domain
+      - CLEARML_FILES_SERVER=https://your.clearml.server.domain
+      - CLEARML_API_ACCESS_KEY=your_access_key
+      - CLEARML_API_SECRET_KEY=your_secret_key
